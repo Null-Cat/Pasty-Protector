@@ -7,8 +7,7 @@ public class MainMenuHandler : MonoBehaviour
 {
     public static void StartGame()
     {
-        //Loads the second scene in the hierarchy
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Defender");
     }
 
     public static void ExitGame()

@@ -62,7 +62,7 @@ public class EnemyReturn : Physics2DObject
             if (hasDroppableObject)
             {
                 GameObject newDroppedObject = Instantiate<GameObject>(droppedObject);
-                newDroppedObject.transform.position = new Vector2(Random.Range(0, 1) + this.transform.position.x, Random.Range(0, 1) + this.transform.position.y);
+                newDroppedObject.transform.position = new Vector2(Random.Range(0, 2) + this.transform.position.x, Random.Range(0, 2) + this.transform.position.y);
             }
             Destroy(gameObject);
         }

@@ -47,7 +47,7 @@ public class TimedSelfDestructWithTimerOrShootToReturn : MonoBehaviour
         if (objectTag == "Bullet")
         {
             GameObject.Find("CollisionDetector").GetComponent<ItemStash>().AddDroppedItemAmountByOne();
-            Destroy(other);
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

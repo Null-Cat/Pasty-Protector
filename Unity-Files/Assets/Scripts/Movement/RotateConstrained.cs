@@ -37,7 +37,7 @@ public class RotateConstrained : Physics2DObject
     void FixedUpdate()
     {
         //Freezes the objects rotation if it hits the constrained bounds
-        if ((this.transform.rotation.z >= constraintRotationAmount && spin <= 0f) || (this.transform.rotation.z <= (constraintRotationAmount * -1) && spin >= 0f))
+        if ((this.transform.rotation.z >= constraintRotationAmount && spin <= 0f) || (this.transform.rotation.z <= -constraintRotationAmount && spin >= 0f))
         {
             rigidbody2D.freezeRotation = true;
         }

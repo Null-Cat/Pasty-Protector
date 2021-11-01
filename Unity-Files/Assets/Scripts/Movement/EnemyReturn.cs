@@ -14,6 +14,8 @@ public class EnemyReturn : Physics2DObject
     public GameObject droppedObject;
     [Header("Death Effect When Shot")]
     public GameObject deathEffect;
+    [Header("Has Droppable Object")]
+    public bool hasDroppableObject = false;
 
     private bool isReturning = false;
     private Vector2 movement = new Vector2(0f, 0f);
@@ -47,12 +49,6 @@ public class EnemyReturn : Physics2DObject
         string playerTag = otherCollider.gameObject.tag;
         if (playerTag == "Player" || playerTag == "Player2")
         {
-            // HealthSystemAttribute healthScript = otherCollider.gameObject.GetComponent<HealthSystemAttribute>();
-            // if (healthScript != null)
-            // {
-            //     // subtract health from the player
-            //     healthScript.ModifyHealth(-1);
-            // }
             this.GetComponent<SpriteRenderer>().flipY = false;
             isReturning = true;
         }
@@ -63,11 +59,25 @@ public class EnemyReturn : Physics2DObject
                 GameObject newDeathEffect = Instantiate<GameObject>(deathEffect);
                 newDeathEffect.transform.position = this.transform.position;
             }
-            float randomX = Random.Range(0, 1);
-            float randomY = Random.Range(0, 1);
-            GameObject newDroppedObject = Instantiate<GameObject>(droppedObject);
-            newDroppedObject.transform.position = new Vector2(randomX + this.transform.position.x, randomY + this.transform.position.y);
-
+            if (hasDroppableObject)
+            {
+                GameObject newDroppedObject = Instantiate<GameObject>(droppedObject);
+                newDroppedObject.transform.position = new Vector2(Random.Range(0, 1) + this.transform.position.x, Random.Range(0, 1) + this.transform.position.y);
+            }
+            Destroy(gameObject);
+        }
+        else if (playerTag == "Finish" && hasDroppableObject)
+        {
+            HealthSystemAttribute healthScript = GameObject.Find("CollisionDetector").gameObject.GetComponent<HealthSystemAttribute>();
+            if (healthScript != null)
+            {
+                // subtract health from the player
+                healthScript.ModifyHealth(-1);
+            }
+            Destroy(gameObject);
+        }
+        else if (playerTag == "Finish" && isReturning)
+        {
             Destroy(gameObject);
         }
     }

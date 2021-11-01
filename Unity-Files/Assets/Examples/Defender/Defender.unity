@@ -2028,6 +2028,7 @@ GameObject:
   - component: {fileID: 1911483931}
   - component: {fileID: 1880482685}
   - component: {fileID: 1891200086}
+  - component: {fileID: 1891200088}
   - component: {fileID: 1880477035}
   - component: {fileID: 114000009163615921}
   - component: {fileID: 1891200087}
@@ -2067,6 +2068,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8504d71b5f7e374bb0450375fe3e6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &1891200088
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891200085}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1891202903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,6 +2183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1911386533}
   - component: {fileID: 1911052147}
+  - component: {fileID: 1891273396}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -2178,6 +2191,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!210 &1891273396
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891273395}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1891273445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1911392657}
   - component: {fileID: 1911520267}
+  - component: {fileID: 1891276010}
   m_Layer: 5
   m_Name: WinPanel
   m_TagString: Untagged
@@ -2213,6 +2238,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!210 &1891276010
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891276009}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!222 &1911052147
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 11441764}
   - component: {fileID: 114000012184921828}
   - component: {fileID: 4441117583140911826}
+  - component: {fileID: -7020474658778450613}
   m_Layer: 0
   m_Name: Enemy Ship
   m_TagString: Enemy
@@ -224,3 +225,14 @@ PolygonCollider2D:
       - {x: -0.044999998, y: 0.42499998}
       - {x: -0.065, y: 0.375}
       - {x: -0.055, y: 0.375}
+--- !u!210 &-7020474658778450613
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105984}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -5

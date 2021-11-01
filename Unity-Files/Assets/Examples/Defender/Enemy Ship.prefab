@@ -176,6 +176,10 @@ MonoBehaviour:
   rigidbody2D: {fileID: 0}
   normalSpeed: 5
   returnSpeed: 5
+  droppedObject: {fileID: 2252406525984333962, guid: a445f9af9bec11a4e89494c4031e6162,
+    type: 3}
+  deathEffect: {fileID: 1496494696399852, guid: e61802031429a4e2e8f547dbca07fe84,
+    type: 3}
 --- !u!114 &114000011533140650
 MonoBehaviour:
   m_ObjectHideFlags: 0

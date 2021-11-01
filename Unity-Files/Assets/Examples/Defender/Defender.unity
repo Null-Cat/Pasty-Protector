@@ -533,8 +533,8 @@ GameObject:
   m_Component:
   - component: {fileID: 267901558}
   - component: {fileID: 267901560}
-  - component: {fileID: 267901559}
   - component: {fileID: 267901561}
+  - component: {fileID: 267901559}
   - component: {fileID: 267901557}
   m_Layer: 0
   m_Name: Cannon
@@ -579,14 +579,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267901556}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c7bb76e85354455909e3f696d0e13a, type: 3}
+  m_Script: {fileID: 11500000, guid: e63701da40cba6c459b22784a509abe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
-  typeOfControl: 1
-  speed: 25
+  typeOfControl: 0
+  speed: 5
+  constraintRotationAmount: 0.3
 --- !u!50 &267901560
 Rigidbody2D:
   serializedVersion: 4

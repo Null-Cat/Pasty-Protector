@@ -43,7 +43,7 @@ public class MoveHorizontalConstrained : Physics2DObject
     void FixedUpdate()
     {
         //Sets the objects velocity to 0 if it hits the constrained bounds
-        if ((this.transform.position.x >= constraintOffsetXPosition && moveHorizontal >= 0f) || (this.transform.position.x <= (constraintOffsetXPosition * -1) && moveHorizontal <= 0f))
+        if ((this.transform.position.x >= constraintOffsetXPosition && moveHorizontal >= 0f) || (this.transform.position.x <= -constraintOffsetXPosition && moveHorizontal <= 0f))
         {
             rigidbody2D.velocity = new Vector2(0f, 0f);
         }

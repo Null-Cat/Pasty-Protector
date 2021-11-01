@@ -19,7 +19,7 @@ public class TimedSelfDestructWithTimerOrShootToReturn : MonoBehaviour
         if (timeToDestruction > 0)
         {
             timeToDestruction -= Time.deltaTime;
-            GetComponentInChildren<TextMesh>().text = Mathf.Abs(timeToDestruction).ToString();
+            GetComponentInChildren<TextMesh>().text = timeToDestruction.ToString().Split('.')[0];
         }
         else
         {
@@ -30,8 +30,25 @@ public class TimedSelfDestructWithTimerOrShootToReturn : MonoBehaviour
     // This function will destroy this object :(
     void DestroyMe()
     {
+        HealthSystemAttribute healthScript = GameObject.Find("CollisionDetector").gameObject.GetComponent<HealthSystemAttribute>();
+        if (healthScript != null)
+        {
+            // subtract health from the player
+            healthScript.ModifyHealth(-1);
+        }
         Destroy(gameObject);
 
         // Bye bye!
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        string objectTag = other.gameObject.tag;
+        if (objectTag == "Bullet")
+        {
+            GameObject.Find("CollisionDetector").GetComponent<ItemStash>().AddDroppedItemAmountByOne();
+            Destroy(other);
+            Destroy(gameObject);
+        }
     }
 }

@@ -29,14 +29,7 @@ public class EnemyReturn : Physics2DObject
     // Update is called once per frame
     void Update()
     {
-        if (isReturning)
-        {
-            movement = new Vector2(0f, returnSpeed);
-        }
-        else
-        {
-            movement = new Vector2(0f, -normalSpeed);
-        }
+        movement = (isReturning) ? new Vector2(0f, returnSpeed) : new Vector2(0f, -normalSpeed);
     }
 
     //FixedUpdate is called every frame when the physics are calculated

@@ -13,7 +13,7 @@ public class ItemStash : MonoBehaviour
         if (objectTag == "Enemy" && droppedItemAmount > 0)
         {
             droppedItemAmount -= 1;
-            other.gameObject.GetComponent<EnemyReturn>().hasDroppableObject = true;
+            other.gameObject.GetComponent<EnemyReturn>().toggleHasDroppableObject();
         }
     }
 

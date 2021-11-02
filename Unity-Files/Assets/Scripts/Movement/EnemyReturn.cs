@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyReturn : Physics2DObject
@@ -14,8 +15,8 @@ public class EnemyReturn : Physics2DObject
     public GameObject droppedObject;
     [Header("Death Effect When Shot")]
     public GameObject deathEffect;
-    [Header("Has Droppable Object")]
-
+    //[Header("Has Droppable Object")]
+    private Sprite shipWithPasties;
     private bool hasDroppableObject = false;
     private bool isReturning = false;
     private Vector2 movement = new Vector2(0f, 0f);
@@ -23,7 +24,7 @@ public class EnemyReturn : Physics2DObject
     // Start is called before the first frame update
     void Start()
     {
-
+        Addressables.LoadAssetAsync<Sprite>("pastieShip").Completed += handle => { shipWithPasties = handle.Result; };
     }
 
     // Update is called once per frame
@@ -77,5 +78,9 @@ public class EnemyReturn : Physics2DObject
     public void toggleHasDroppableObject()
     {
         hasDroppableObject = (hasDroppableObject) ? false : true;
+        if (hasDroppableObject)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = shipWithPasties;
+        }
     }
 }

@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Examples/Defender/Defender.unity
     guid: b1b937fcf0e2443e7af7bc3b845e57fe
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 188067350a96ab9458c39950b9df42d2,
+      type: 2}

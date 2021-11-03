@@ -10,7 +10,7 @@ public class ObjectCreatorArea : MonoBehaviour
 	// The object to spawn
 	// WARNING: take if from the Project panel, NOT the Scene/Hierarchy!
 	public GameObject prefabToSpawn;
-
+    public GameObject ItemOne;
 	[Header("Other options")]
 
 	// Configure the spawning pattern

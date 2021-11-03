@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 950081912}
   - component: {fileID: 950081913}
   m_Layer: 0
-  m_Name: GroundBlock
+  m_Name: CastleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1052,7 +1052,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 14.47987, y: 1.2}
+  m_Size: {x: 14.43, y: 2.37}
   m_AdaptiveModeThreshold: 100
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1

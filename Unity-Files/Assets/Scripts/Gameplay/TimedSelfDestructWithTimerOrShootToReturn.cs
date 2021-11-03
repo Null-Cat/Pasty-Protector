@@ -19,7 +19,7 @@ public class TimedSelfDestructWithTimerOrShootToReturn : MonoBehaviour
         if (timeToDestruction > 0)
         {
             timeToDestruction -= Time.deltaTime;
-            GetComponentInChildren<TextMesh>().text = timeToDestruction.ToString().Split('.')[0];
+            GetComponentInChildren<TextMesh>().text = Mathf.FloorToInt(timeToDestruction).ToString();
         }
         else
         {

@@ -420,8 +420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
   typeOfControl: 0
-  speed: 5
-  constraintRotationAmount: 0.3
+  speed: 8
+  constraintRotationAmount: 0.37
 --- !u!50 &267901560
 Rigidbody2D:
   serializedVersion: 4
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
   typeOfControl: 1
-  speed: 5
+  speed: 1.5
   constrainedDistance: 6
 --- !u!1 &288784317
 GameObject:
@@ -777,8 +777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 196000, guid: c9ddfe9d025db4b058cfab0c1466019c, type: 3}
   keyToPress: 32
-  creationRate: 0.4
-  shootSpeed: 4
+  creationRate: 0.6
+  shootSpeed: 5
   shootDirection: {x: 0, y: 1}
   relativeToRotation: 1
 --- !u!1 &668653126

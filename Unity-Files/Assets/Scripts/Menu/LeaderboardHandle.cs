@@ -13,7 +13,6 @@ public class LeaderboardHandle : MonoBehaviour
 
     private MySqlConnectionStringBuilder mySQLConectionBuilder = new MySqlConnectionStringBuilder();
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +21,8 @@ public class LeaderboardHandle : MonoBehaviour
         mySQLConectionBuilder.UserID = "sql4449219";
         mySQLConectionBuilder.Password = "hsFqWLxIIF";
         mySQLConectionBuilder.Database = "sql4449219";
+
+        GameObject.Find("FinalScoreLabel").GetComponent<Text>().text = GameObject.Find("FinalScoreLabel").GetComponent<Text>().text.Replace("000", finalScore.ToString());
     }
 
     public void SubmitScores()

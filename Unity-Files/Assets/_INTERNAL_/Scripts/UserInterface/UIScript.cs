@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [AddComponentMenu("")]
 public class UIScript : MonoBehaviour
 {
-	[Header("Configuration")]
+    [Header("Configuration")]
 	public Players numberOfPlayers = Players.OnePlayer;
 
 	public GameType gameType = GameType.Score;
@@ -23,6 +23,7 @@ public class UIScript : MonoBehaviour
 	public GameObject statsPanel, gameOverPanel, winPanel;
 	public Transform inventory;
 	public GameObject resourceItemPrefab;
+    
 
 
 	// Internal variables to keep track of score, health, and resources, win state
@@ -59,8 +60,8 @@ public class UIScript : MonoBehaviour
 		}
 	}
 
-	//version of the one below with one parameter to be able to connect UnityEvents
-	public void AddOnePoint(int playerNumber)
+    //version of the one below with one parameter to be able to connect UnityEvents
+    public void AddOnePoint(int playerNumber)
 	{
 		AddPoints(playerNumber, 1);
 	}

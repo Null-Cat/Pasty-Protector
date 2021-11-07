@@ -34,7 +34,7 @@ public class LeaderboardHandle : MonoBehaviour
         for (int i = 0; i < Scores.Count; i++)
         {
             Text scoreLabel = GameObject.Find($"ScoreText ({i + 1})").GetComponent<Text>();
-            string editedText = scoreLabel.text.Replace("AAA", $"{Scores[i].username}").Replace("111", $"{Scores[i].score}").Replace("222", $"{Scores[i].timeLasted}");
+            string editedText = System.String.Format("{0,3} {1,22} {2,22} {3,22}", scoreLabel.text, Scores[i].username, Scores[i].score, Scores[i].timeLasted);
             scoreLabel.text = editedText;
         }
     }
@@ -67,7 +67,7 @@ public class LeaderboardHandle : MonoBehaviour
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = "SELECT * FROM Scores ORDER BY Score DESC LIMIT 5";
+                string sql = "SELECT Username, Score, TimeLasted FROM Scores ORDER BY Score DESC LIMIT 5";
                 using (MySqlCommand command = new MySqlCommand(sql, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())

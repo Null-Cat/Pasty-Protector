@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UITimer : MonoBehaviour
 {
-    private float time;
+    public float time { get; set; }
 
     // Update is called once per frame
     void Update()

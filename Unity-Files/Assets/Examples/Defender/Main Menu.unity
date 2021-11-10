@@ -1749,7 +1749,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2fb810d2f9fc27b4eb7693fd3f9f158c, type: 3}
-    m_FontSize: 40
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1760,7 +1760,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description of the game
+  m_Text: Protect the pasty supply of Pendennis Castle at all costs! Man the cannons
+    and shoot the approaching pirate ships to prevent the pilferous plunderers from
+    stealing all your delicious loot aye! Don't hit the friendly fishing boats though,
+    as the locals would not appreciate that very much now would they? Good luck,
+    and most importantly, have fun!
 --- !u!222 &1835426314
 CanvasRenderer:
   m_ObjectHideFlags: 0

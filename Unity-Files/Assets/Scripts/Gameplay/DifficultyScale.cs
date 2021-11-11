@@ -18,7 +18,7 @@ public class DifficultyScale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (((Mathf.FloorToInt(time.GetComponent<UITimer>().time) - (incrementAmountInSeconds * currentDifficultyLevel)) / incrementDifficultyInSeconds) + 1 == 2)
+        if (((Mathf.FloorToInt(time.GetComponent<UITimer>().time) - (incrementAmountInSeconds * currentDifficultyLevel)) / incrementDifficultyInSeconds) == 1)
         {
             currentDifficultyLevel++;
             incrementDifficultyInSeconds += incrementAmountInSeconds;

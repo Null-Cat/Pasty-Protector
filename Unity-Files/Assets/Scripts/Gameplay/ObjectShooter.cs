@@ -57,6 +57,10 @@ public class ObjectShooter : MonoBehaviour
 			if(rigidbody2D != null)
 			{
 				rigidbody2D.AddForce(actualBulletDirection * shootSpeed, ForceMode2D.Impulse);
+				if (GetComponent<AudioSource>() != null)
+                {
+					GetComponent<AudioSource>().Play();
+				}
 			}
 
 			// add a Bullet component if the prefab doesn't already have one, and assign the player ID

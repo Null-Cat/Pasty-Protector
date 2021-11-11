@@ -2278,6 +2278,7 @@ GameObject:
   - component: {fileID: 1011785960}
   - component: {fileID: 1011785961}
   - component: {fileID: 1011785962}
+  - component: {fileID: 1011785963}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -2340,6 +2341,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1011785963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011785959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9418145f40ecef5499e1656dd4d6a266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: {fileID: 542591968}
+  difficultyScaleInSeconds: 30
 --- !u!1 &1019999843
 GameObject:
   m_ObjectHideFlags: 0

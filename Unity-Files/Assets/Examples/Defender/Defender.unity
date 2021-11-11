@@ -2354,7 +2354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 542591968}
-  difficultyScaleInSeconds: 30
+  incrementDifficultyInSeconds: 30
+  incrementAmountInSeconds: 25
 --- !u!1 &1019999843
 GameObject:
   m_ObjectHideFlags: 0

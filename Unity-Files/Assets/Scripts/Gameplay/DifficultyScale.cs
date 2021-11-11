@@ -5,8 +5,9 @@ using UnityEngine;
 public class DifficultyScale : MonoBehaviour
 {
     public GameObject time;
-    [SerializeField] private int difficultyScaleInSeconds = 30;
-    private int nextDifficultyLevel = 2;
+    [SerializeField] private int incrementDifficultyInSeconds = 30;
+    [SerializeField] private int incrementAmountInSeconds = 25;
+    private int currentDifficultyLevel = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,10 @@ public class DifficultyScale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Mathf.FloorToInt(time.GetComponent<UITimer>().time) / difficultyScaleInSeconds) + 1 == nextDifficultyLevel)
+        if (((Mathf.FloorToInt(time.GetComponent<UITimer>().time) - (incrementAmountInSeconds * currentDifficultyLevel)) / incrementDifficultyInSeconds) + 1 == 2)
         {
-            nextDifficultyLevel++;
+            currentDifficultyLevel++;
+            incrementDifficultyInSeconds += incrementAmountInSeconds;
             this.GetComponent<ObjectCreatorArea>().spawnInterval = this.GetComponent<ObjectCreatorArea>().spawnInterval * 0.5f;
         }
     }

@@ -46,7 +46,7 @@ public class EnemyReturn : Physics2DObject
             this.GetComponent<SpriteRenderer>().flipY = false;
             isReturning = true;
         }
-        else if (playerTag == "Bullet")
+        if (playerTag == "Bullet")
         {
             if (deathEffect != null)
             {
@@ -60,7 +60,7 @@ public class EnemyReturn : Physics2DObject
             }
             Destroy(gameObject);
         }
-        else if (playerTag == "Finish" && hasDroppableObject)
+        if (playerTag == "Finish" && hasDroppableObject)
         {
             HealthSystemAttribute healthScript = GameObject.Find("CollisionDetector").gameObject.GetComponent<HealthSystemAttribute>();
             if (healthScript != null)

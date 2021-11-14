@@ -48,17 +48,7 @@ public class EnemyReturn : Physics2DObject
         }
         if (playerTag == "Bullet")
         {
-            if (deathEffect != null)
-            {
-                GameObject newDeathEffect = Instantiate<GameObject>(deathEffect);
-                newDeathEffect.transform.position = this.transform.position;
-            }
-            if (hasDroppableObject)
-            {
-                GameObject newDroppedObject = Instantiate<GameObject>(droppedObject);
-                newDroppedObject.transform.position = new Vector2(Random.Range(0, 2) + this.transform.position.x, Random.Range(0, 2) + this.transform.position.y);
-            }
-            Destroy(gameObject);
+            DestroyShip();
         }
         if (playerTag == "Finish" && hasDroppableObject)
         {
@@ -82,5 +72,19 @@ public class EnemyReturn : Physics2DObject
         {
             this.GetComponent<SpriteRenderer>().sprite = shipWithPasties;
         }
+    }
+    public void DestroyShip(bool triggerDeathEffect = true)
+    {
+        if (deathEffect != null && triggerDeathEffect)
+        {
+            GameObject newDeathEffect = Instantiate<GameObject>(deathEffect);
+            newDeathEffect.transform.position = this.transform.position;
+        }
+        if (hasDroppableObject)
+        {
+            GameObject newDroppedObject = Instantiate<GameObject>(droppedObject);
+            newDroppedObject.transform.position = new Vector2(Random.Range(0, 2) + this.transform.position.x, Random.Range(0, 2) + this.transform.position.y);
+        }
+        Destroy(gameObject);
     }
 }

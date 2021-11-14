@@ -18,6 +18,8 @@ public class FetchingScoresAnimation : MonoBehaviour
     {
         while (textComponent != null)
         {
+            try
+            {
             textComponent.text = "Fetching Scores";
             await Task.Delay(200);
             textComponent.text = "Fetching Scores.";
@@ -26,6 +28,11 @@ public class FetchingScoresAnimation : MonoBehaviour
             await Task.Delay(200);
             textComponent.text = "Fetching Scores...";
             await Task.Delay(200);
+            }
+            catch (MissingReferenceException)
+            {
+                Debug.Log("Missing Reference: Ignoring Due to Async Winddown");
+            }
         }
     }
 }

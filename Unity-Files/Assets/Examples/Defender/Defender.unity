@@ -517,7 +517,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 500, y: -430}
-  m_SizeDelta: {x: 81.12676, y: 80}
+  m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &222835919
 MonoBehaviour:
@@ -778,7 +778,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 500, y: -50}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &289906080
 MonoBehaviour:
@@ -857,7 +857,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 500, y: -510}
-  m_SizeDelta: {x: 81.12676, y: 80}
+  m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &303121901
 MonoBehaviour:
@@ -1644,7 +1644,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 500, y: -350}
-  m_SizeDelta: {x: 81.12676, y: 80}
+  m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615826098
 MonoBehaviour:
@@ -2072,6 +2072,7 @@ GameObject:
   - component: {fileID: 839555744}
   - component: {fileID: 839555746}
   - component: {fileID: 839555745}
+  - component: {fileID: 839555747}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -2153,7 +2154,19 @@ MonoBehaviour:
   m_CharacterLimit: 3
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 839555747}
+        m_TargetAssemblyTypeName: UsernameValidateSubmit, Assembly-CSharp
+        m_MethodName: ValidateInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2173,6 +2186,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839555743}
   m_CullTransparentMesh: 1
+--- !u!114 &839555747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839555743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108b8a00cf009bc4aad975346437aa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &873720540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,7 +3181,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 500, y: -190}
-  m_SizeDelta: {x: 74.88624, y: 80}
+  m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1433312461
 MonoBehaviour:
@@ -4879,7 +4904,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 500, y: -270}
-  m_SizeDelta: {x: 81.12676, y: 80}
+  m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084735052
 MonoBehaviour:
@@ -5026,9 +5051,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1891273398}
-        m_TargetAssemblyTypeName: LeaderboardHandle, Assembly-CSharp
-        m_MethodName: SubmitScores
+      - m_Target: {fileID: 839555747}
+        m_TargetAssemblyTypeName: UsernameValidateSubmit, Assembly-CSharp
+        m_MethodName: ValidateInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

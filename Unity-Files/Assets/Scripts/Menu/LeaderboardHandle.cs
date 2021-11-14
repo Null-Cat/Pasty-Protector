@@ -4,33 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using MySql.Data.MySqlClient;
 using System.Net;
+using System.Threading.Tasks;
 public class LeaderboardHandle : MonoBehaviour
 {
     public InputField submitUsername;
     public GameObject GameOverPanel;
+    public GameObject FetchingScores;
     public float time { get; set; }
     public int finalScore { get; set; }
 
-    private MySqlConnectionStringBuilder mySQLConectionBuilder = new MySqlConnectionStringBuilder();
+    private MySqlConnectionStringBuilder mySQLConnectionBuilder = new MySqlConnectionStringBuilder();
 
     // Start is called before the first frame update
     void Start()
     {
-        mySQLConectionBuilder.Server = "sql4.freesqldatabase.com";
-        mySQLConectionBuilder.Port = 3306;
-        mySQLConectionBuilder.UserID = "sql4449219";
-        mySQLConectionBuilder.Password = "hsFqWLxIIF";
-        mySQLConectionBuilder.Database = "sql4449219";
+        mySQLConnectionBuilder.Server = "sql4.freesqldatabase.com";
+        mySQLConnectionBuilder.Port = 3306;
+        mySQLConnectionBuilder.UserID = "sql4449219";
+        mySQLConnectionBuilder.Password = "hsFqWLxIIF";
+        mySQLConnectionBuilder.Database = "sql4449219";
 
         GameObject.Find("FinalScoreLabel").GetComponent<Text>().text = GameObject.Find("FinalScoreLabel").GetComponent<Text>().text.Replace("000", finalScore.ToString());
     }
 
-    public void SubmitScores()
+    public async void SubmitScores()
     {
-        SetScoreRecords(mySQLConectionBuilder.ConnectionString, submitUsername.text);
+        GameObject.Find("GameOverLabel").SetActive(false);
+        FetchingScores.GetComponent<FetchingScoresAnimation>().enabled = true;
+        await SetScoreRecords(mySQLConnectionBuilder.ConnectionString, submitUsername.text);
+        List<Score> Scores = new List<Score>(await GetScoreRecords(mySQLConnectionBuilder.ConnectionString));
+        FetchingScores.GetComponent<FetchingScoresAnimation>().enabled = false;
+        FetchingScores.SetActive(false);
         GameOverPanel.GetComponent<Animator>().enabled = true;
-
-        List<Score> Scores = new List<Score>(GetScoreRecords(mySQLConectionBuilder.ConnectionString));
         for (int i = 0; i < Scores.Count; i++)
         {
             Text scoreLabel = GameObject.Find($"ScoreText ({i + 1})").GetComponent<Text>();
@@ -39,51 +44,57 @@ public class LeaderboardHandle : MonoBehaviour
         }
     }
 
-    private void SetScoreRecords(string connectionString, string username)
+    private async Task SetScoreRecords(string connectionString, string username)
     {
-        try
+        await Task.Run(() =>
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                string sql = $"INSERT INTO Scores VALUES ('{username.ToUpper()}', '{finalScore}', '{Mathf.FloorToInt(time)}', '{GetIPAddress()}')";
-                using (MySqlCommand command = new MySqlCommand(sql, connection))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    command.ExecuteNonQuery();
+                    connection.Open();
+                    string sql = $"INSERT INTO Scores VALUES ('{username.ToUpper()}', '{finalScore}', '{Mathf.FloorToInt(time)}', '{GetIPAddress()}')";
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
                 }
             }
-        }
-        catch (MySqlException e)
-        {
-            Debug.Log(e.ToString());
-        }
+            catch (MySqlException e)
+            {
+                Debug.Log(e.ToString());
+            }
+        });
     }
 
-    private List<Score> GetScoreRecords(string connectionString)
+    private async Task<List<Score>> GetScoreRecords(string connectionString)
     {
         List<Score> records = new List<Score>();
-        try
+        await Task.Run(() =>
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                string sql = "SELECT Username, Score, TimeLasted FROM Scores ORDER BY Score DESC LIMIT 5";
-                using (MySqlCommand command = new MySqlCommand(sql, connection))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    connection.Open();
+                    string sql = "SELECT Username, Score, TimeLasted FROM Scores ORDER BY Score DESC LIMIT 5";
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
-                        while (reader.Read())
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            records.Add(new Score(reader.GetString(0), reader.GetInt32(1), reader.GetInt32(2)));
+                            while (reader.Read())
+                            {
+                                records.Add(new Score(reader.GetString(0), reader.GetInt32(1), reader.GetInt32(2)));
+                            }
                         }
                     }
                 }
             }
-        }
-        catch (MySqlException e)
-        {
-            Debug.Log(e.ToString());
-        }
+            catch (MySqlException e)
+            {
+                Debug.Log(e.ToString());
+            }
+        });
         return records;
     }
 

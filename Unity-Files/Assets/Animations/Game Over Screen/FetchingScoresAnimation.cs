@@ -6,25 +6,26 @@ using UnityEngine.UI;
 
 public class FetchingScoresAnimation : MonoBehaviour
 {
+    private Text textComponent;
 
-    void Update()
+    void Start()
     {
+        textComponent = GetComponent<Text>();
         AnimateText();
     }
 
     private async void AnimateText()
     {
-        Text text = GetComponent<Text>();
         while (true)
         {
-            await Task.Run(async () => {
-                text.text = "Fetching Scores.";
-                await Task.Delay(1000);
-                text.text = "Fetching Scores..";
-                await Task.Delay(1000);
-                text.text = "Fetching Scores...";
-                await Task.Delay(1000);
-            });
+            textComponent.text = "Fetching Scores";
+            await Task.Delay(1000);
+            textComponent.text = "Fetching Scores.";
+            await Task.Delay(1000);
+            textComponent.text = "Fetching Scores..";
+            await Task.Delay(1000);
+            textComponent.text = "Fetching Scores...";
+            await Task.Delay(1000);
         }
     }
 }

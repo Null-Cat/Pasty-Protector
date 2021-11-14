@@ -16,7 +16,7 @@ public class FetchingScoresAnimation : MonoBehaviour
 
     private async void AnimateText()
     {
-        while (true)
+        while (textComponent != null)
         {
             textComponent.text = "Fetching Scores";
             await Task.Delay(200);

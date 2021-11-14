@@ -19,13 +19,13 @@ public class FetchingScoresAnimation : MonoBehaviour
         while (true)
         {
             textComponent.text = "Fetching Scores";
-            await Task.Delay(1000);
+            await Task.Delay(200);
             textComponent.text = "Fetching Scores.";
-            await Task.Delay(1000);
+            await Task.Delay(200);
             textComponent.text = "Fetching Scores..";
-            await Task.Delay(1000);
+            await Task.Delay(200);
             textComponent.text = "Fetching Scores...";
-            await Task.Delay(1000);
+            await Task.Delay(200);
         }
     }
 }

@@ -38,9 +38,9 @@ public class LeaderboardHandle : MonoBehaviour
         GameOverPanel.GetComponent<Animator>().enabled = true;
         for (int i = 0; i < Scores.Count; i++)
         {
-            Text scoreLabel = GameObject.Find($"ScoreText ({i + 1})").GetComponent<Text>();
-            string editedText = System.String.Format("{0,3} {1,22} {2,22} {3,22}", scoreLabel.text, Scores[i].username, Scores[i].score, Scores[i].timeLasted);
-            scoreLabel.text = editedText;
+                GameObject.Find($"ScoreText ({i + 1}2)").GetComponent<Text>().text = Scores[i].username;
+                GameObject.Find($"ScoreText ({i + 1}3)").GetComponent<Text>().text = Scores[i].score.ToString();
+                GameObject.Find($"ScoreText ({i + 1}4)").GetComponent<Text>().text = Scores[i].timeLasted.ToString();
         }
     }
 

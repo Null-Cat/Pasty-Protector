@@ -37,12 +37,7 @@ public class BombPowerUp : MonoBehaviour
             {
                 if (boats.CompareTag("Enemy"))
                 {
-                    if (explosionEffect != null)
-                    {
-                        GameObject newDeathEffect = Instantiate<GameObject>(explosionEffect);
-                        newDeathEffect.transform.position = boats.gameObject.transform.position;
-                    }
-                    Destroy(boats.gameObject);
+                    boats.GetComponent<EnemyReturn>().DestroyShip();
                 }
             }
         }

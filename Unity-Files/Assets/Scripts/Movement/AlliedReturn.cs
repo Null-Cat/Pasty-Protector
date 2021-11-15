@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class AlliedReturn : Physics2DObject
@@ -11,20 +10,11 @@ public class AlliedReturn : Physics2DObject
     public float normalSpeed = 5f;
     [Tooltip("The amount of speed in which the boat moves away from the castle")]
     public float returnSpeed = 5f;
-    [Header("Dropped Object")]
-    public GameObject droppedObject;
     [Header("Death Effect When Shot")]
     public GameObject deathEffect;
     //[Header("Has Droppable Object")]
-    private bool hasDroppableObject = false;
     private bool isReturning = false;
     private Vector2 movement = new Vector2(0f, 0f);
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -48,13 +38,13 @@ public class AlliedReturn : Physics2DObject
         if (playerTag == "Bullet")
         {
             DestroyShip();
-            HealthSystemAttribute healthScript = GameObject.Find("CollisionDetector").gameObject.GetComponent<HealthSystemAttribute>();
-            if (healthScript != null)
-            {
-                // subtract health from the player
-                healthScript.ModifyHealth(-1);
-            }
-            Destroy(gameObject);
+            // HealthSystemAttribute healthScript = GameObject.Find("CollisionDetector").gameObject.GetComponent<HealthSystemAttribute>();
+            // if (healthScript != null)
+            // {
+            //     // subtract health from the player
+            //     healthScript.ModifyHealth(-1);
+            // }
+            // Destroy(gameObject);
         }
         else if (playerTag == "Finish" && isReturning)
         {

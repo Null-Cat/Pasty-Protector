@@ -1762,7 +1762,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6b8e3c84427db0e4583454e3b7fb843a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3123,7 +3123,7 @@ MonoBehaviour:
   time: {fileID: 542591968}
   difficultyType: 1
   incrementDifficultyInSeconds: 30
-  incrementAmountInSeconds: 25
+  incrementAmountInSeconds: 30
 --- !u!1 &1019999843
 GameObject:
   m_ObjectHideFlags: 0

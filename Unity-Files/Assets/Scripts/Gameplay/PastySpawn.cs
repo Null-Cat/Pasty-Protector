@@ -3,8 +3,12 @@ using DG.Tweening;
 
 public class PastySpawn : MonoBehaviour
 {
+    private float cameraBoundsOffset = -3f;
+    private Bounds mainCameraBounds;
     private void Start()
     {
+        mainCameraBounds = GetCameraBounds(Camera.main);
+        mainCameraBounds.Expand(cameraBoundsOffset);
         transform.DOMove(GetNewRandomPoint(), 1);
     }
 
@@ -14,9 +18,7 @@ public class PastySpawn : MonoBehaviour
 
         if (isOutOfBounds(newPoint))
         {
-            Bounds mainCameraBoundsOffset = GetCameraBounds(Camera.main);
-            mainCameraBoundsOffset.Expand(-1f);
-            newPoint = mainCameraBoundsOffset.ClosestPoint(this.transform.position);
+            newPoint = mainCameraBounds.ClosestPoint(newPoint);
             newPoint.Set(newPoint.x, newPoint.y, 0f);
         }
         return newPoint;
@@ -24,11 +26,7 @@ public class PastySpawn : MonoBehaviour
 
     private bool isOutOfBounds(Vector3 targetPosition)
     {
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-        if (GeometryUtility.TestPlanesAABB(planes, new Bounds(targetPosition, GetComponent<BoxCollider2D>().bounds.size)))
-            return false;
-        else
-            return true;
+        return mainCameraBounds.Intersects(new Bounds(targetPosition, GetComponent<BoxCollider2D>().bounds.size)) ? false : true;
     }
 
     private static Bounds GetCameraBounds(Camera camera)

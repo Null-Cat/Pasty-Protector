@@ -180,6 +180,7 @@ MonoBehaviour:
   deathEffect: {fileID: 1496494696399852, guid: e61802031429a4e2e8f547dbca07fe84,
     type: 3}
   shipWithPasties: {fileID: 21300000, guid: 1e6561e946c90b94895946b3cfb12f82, type: 3}
+  shipSinking: {fileID: 0}
 --- !u!114 &114000011533140650
 MonoBehaviour:
   m_ObjectHideFlags: 0

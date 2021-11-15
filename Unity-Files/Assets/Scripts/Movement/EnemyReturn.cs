@@ -85,6 +85,7 @@ public class EnemyReturn : Physics2DObject
             GameObject newDroppedObject = Instantiate<GameObject>(droppedObject);
             newDroppedObject.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
         }
+        GetComponent<AudioSource>().Play();
         Destroy(gameObject);
     }
 }

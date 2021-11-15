@@ -15,8 +15,9 @@ public class EnemyReturn : Physics2DObject
     public GameObject droppedObject;
     [Header("Death Effect When Shot")]
     public GameObject deathEffect;
-    //[Header("Has Droppable Object")]
     public Sprite shipWithPasties;
+    public AudioSource shipSinking;
+
     private bool hasDroppableObject = false;
     private bool isReturning = false;
     private Vector2 movement = new Vector2(0f, 0f);
@@ -85,7 +86,7 @@ public class EnemyReturn : Physics2DObject
             GameObject newDroppedObject = Instantiate<GameObject>(droppedObject);
             newDroppedObject.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
         }
-        GetComponent<AudioSource>().Play();
+        GameObject.Find("ShipSinking").GetComponent<AudioSource>().Play();
         Destroy(gameObject);
     }
 }

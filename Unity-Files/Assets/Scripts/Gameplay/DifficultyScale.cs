@@ -10,6 +10,7 @@ public class DifficultyScale : MonoBehaviour
     public TypeOfDifficulty difficultyType;
     [SerializeField] private int incrementDifficultyInSeconds = 30;
     [SerializeField] private int incrementAmountInSeconds = 25;
+    [SerializeField] private float difficultyCap = 0.5f;
     private int currentDifficultyLevel = 0;
     public enum TypeOfDifficulty
     {
@@ -19,6 +20,7 @@ public class DifficultyScale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<ObjectCreatorArea>().spawnInterval <= difficultyCap) return;
         switch (difficultyType)
         {
             case TypeOfDifficulty.Exponential:
@@ -26,14 +28,14 @@ public class DifficultyScale : MonoBehaviour
                 {
                     currentDifficultyLevel++;
                     incrementDifficultyInSeconds += incrementAmountInSeconds;
-                    this.GetComponent<ObjectCreatorArea>().spawnInterval = this.GetComponent<ObjectCreatorArea>().spawnInterval * 0.5f;
+                    this.GetComponent<ObjectCreatorArea>().spawnInterval = this.GetComponent<ObjectCreatorArea>().spawnInterval - 0.5f;
                 }
                 break;
             case TypeOfDifficulty.Constant:
                 if ((Mathf.FloorToInt(time.GetComponent<UITimer>().time) >= (incrementDifficultyInSeconds * (currentDifficultyLevel + 1))))
                 {
                     currentDifficultyLevel++;
-                    this.GetComponent<ObjectCreatorArea>().spawnInterval = this.GetComponent<ObjectCreatorArea>().spawnInterval * 0.5f;
+                    this.GetComponent<ObjectCreatorArea>().spawnInterval = this.GetComponent<ObjectCreatorArea>().spawnInterval - 0.5f;
                 }
                 break;
         }

@@ -18,11 +18,16 @@ public class LeaderboardHandle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mySQLConnectionBuilder.Server = "sql4.freesqldatabase.com";
+        // mySQLConnectionBuilder.Server = "sql4.freesqldatabase.com";
+        // mySQLConnectionBuilder.Port = 3306;
+        // mySQLConnectionBuilder.UserID = "sql4449219";
+        // mySQLConnectionBuilder.Password = "hsFqWLxIIF";
+        // mySQLConnectionBuilder.Database = "sql4449219";
+        mySQLConnectionBuilder.Server = "remotemysql.com";
         mySQLConnectionBuilder.Port = 3306;
-        mySQLConnectionBuilder.UserID = "sql4449219";
-        mySQLConnectionBuilder.Password = "hsFqWLxIIF";
-        mySQLConnectionBuilder.Database = "sql4449219";
+        mySQLConnectionBuilder.UserID = "gniP59cV8F";
+        mySQLConnectionBuilder.Password = "xa3VLSoIG4";
+        mySQLConnectionBuilder.Database = "gniP59cV8F";
 
         GameObject.Find("FinalScoreLabel").GetComponent<Text>().text = GameObject.Find("FinalScoreLabel").GetComponent<Text>().text.Replace("000", finalScore.ToString());
     }

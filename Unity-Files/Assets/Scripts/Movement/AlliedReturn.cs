@@ -12,8 +12,11 @@ public class AlliedReturn : Physics2DObject
     public float returnSpeed = 5f;
     [Header("Death Effect When Shot")]
     public GameObject deathEffect;
-    //[Header("Has Droppable Object")]
+    public GameObject[] droppables;
+
+
     private bool isReturning = false;
+    private bool hasDroppableObject = true;
     private Vector2 movement = new Vector2(0f, 0f);
 
     // Update is called once per frame
@@ -30,21 +33,15 @@ public class AlliedReturn : Physics2DObject
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
         string playerTag = otherCollider.gameObject.tag;
-        if (playerTag == "Player" || playerTag == "Player2")
+        if (otherCollider.gameObject.name == "CollisionDetectorAlly")
         {
             this.GetComponent<SpriteRenderer>().flipY = false;
             isReturning = true;
+            dropObject();
         }
         if (playerTag == "Bullet")
         {
             DestroyShip();
-            // HealthSystemAttribute healthScript = GameObject.Find("CollisionDetector").gameObject.GetComponent<HealthSystemAttribute>();
-            // if (healthScript != null)
-            // {
-            //     // subtract health from the player
-            //     healthScript.ModifyHealth(-1);
-            // }
-            // Destroy(gameObject);
         }
         else if (playerTag == "Finish" && isReturning)
         {
@@ -59,5 +56,13 @@ public class AlliedReturn : Physics2DObject
             newDeathEffect.transform.position = this.transform.position;
         }
         Destroy(gameObject);
+    }
+
+    private void dropObject()
+    {
+        if (hasDroppableObject)
+        {
+            Instantiate<GameObject>(droppables[Random.Range(0, droppables.Length)]).transform.position = this.transform.position;
+        }
     }
 }

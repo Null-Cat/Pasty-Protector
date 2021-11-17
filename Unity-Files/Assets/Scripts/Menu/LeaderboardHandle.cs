@@ -12,6 +12,7 @@ public class LeaderboardHandle : MonoBehaviour
     public GameObject FetchingScores;
     public float time { get; set; }
     public int finalScore { get; set; }
+    public Sprite[] easterEgg;
 
     private MySqlConnectionStringBuilder mySQLConnectionBuilder = new MySqlConnectionStringBuilder();
 
@@ -29,6 +30,15 @@ public class LeaderboardHandle : MonoBehaviour
         mySQLConnectionBuilder.Password = "xa3VLSoIG4";
         mySQLConnectionBuilder.Database = "gniP59cV8F";
 
+
+        if (finalScore == 69)
+        {
+            GameObject.Find("Sea").GetComponent<Animator>().enabled = false;
+            Debug.Log(Random.Range(0, easterEgg.Length));
+            GameObject.Find("Sea").GetComponent<SpriteRenderer>().sprite = easterEgg[Random.Range(0, 2)];
+        }
+
+
         GameObject.Find("FinalScoreLabel").GetComponent<Text>().text = GameObject.Find("FinalScoreLabel").GetComponent<Text>().text.Replace("000", finalScore.ToString());
     }
 
@@ -43,9 +53,9 @@ public class LeaderboardHandle : MonoBehaviour
         GameOverPanel.GetComponent<Animator>().enabled = true;
         for (int i = 0; i < Scores.Count; i++)
         {
-                GameObject.Find($"ScoreText ({i + 1}2)").GetComponent<Text>().text = Scores[i].username;
-                GameObject.Find($"ScoreText ({i + 1}3)").GetComponent<Text>().text = Scores[i].score.ToString();
-                GameObject.Find($"ScoreText ({i + 1}4)").GetComponent<Text>().text = Scores[i].timeLasted.ToString();
+            GameObject.Find($"ScoreText ({i + 1}2)").GetComponent<Text>().text = Scores[i].username;
+            GameObject.Find($"ScoreText ({i + 1}3)").GetComponent<Text>().text = Scores[i].score.ToString();
+            GameObject.Find($"ScoreText ({i + 1}4)").GetComponent<Text>().text = Scores[i].timeLasted.ToString();
         }
     }
 

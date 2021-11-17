@@ -62,6 +62,7 @@ public class AlliedReturn : Physics2DObject
     {
         if (hasDroppableObject)
         {
+            hasDroppableObject = false;
             Instantiate<GameObject>(droppables[Random.Range(0, droppables.Length)]).transform.position = this.transform.position;
         }
     }

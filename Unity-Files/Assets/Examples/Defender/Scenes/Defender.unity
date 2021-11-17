@@ -2913,7 +2913,6 @@ GameObject:
   - component: {fileID: 915811084}
   - component: {fileID: 915811083}
   - component: {fileID: 915811082}
-  - component: {fileID: 915811081}
   m_Layer: 0
   m_Name: CollisionDetectorAlly
   m_TagString: Allies
@@ -2921,19 +2920,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &915811081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915811080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba26da02d9d0b540be9dee579836806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  droppedItemAmount: 3
 --- !u!61 &915811082
 BoxCollider2D:
   m_ObjectHideFlags: 0
